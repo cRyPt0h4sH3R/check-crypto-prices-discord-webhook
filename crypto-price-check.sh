@@ -21,7 +21,7 @@ api_name=<api_provider_name>
 # Ex: api_url=https://api.kucoin.com/api/v1/market/stats
 api_url=<api_url>
 # Content of Discord message
-content='Daily crypto price check'
+content='Crypto Price Check'
 title=''
 description=''
 # Use a temporary file to compose the JSON payload
