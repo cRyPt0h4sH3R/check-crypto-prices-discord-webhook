@@ -37,7 +37,7 @@ cat > "${TEMP_FILE}" << EOF
             "fields": [
 EOF
 
-#Cycle through ticker array
+#Cycle through tickers array
 for i in "${!tickers[@]}"; do
     # Ignore first array item, it will be parsed after the loop
     if [ $i == 0 ]; then
