@@ -20,6 +20,8 @@ api_name=<api_provider_name>
 # API URL
 # Ex: api_url=https://api.kucoin.com/api/v1/market/stats
 api_url=<api_url>
+# API logo
+api_logo=https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png
 # Content of Discord message
 content='Crypto Price Check'
 title=''
@@ -80,8 +82,8 @@ EOF
 cat >> "${TEMP_FILE}" << EOF
         ],
         "footer": {
-            "text": "API by KuCoin",
-            "icon_url": "https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png"
+            "text": "API by $api_name",
+            "icon_url": "$api_logo"
         }
     }
     ]
