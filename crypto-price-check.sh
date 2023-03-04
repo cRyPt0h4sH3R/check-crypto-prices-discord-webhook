@@ -10,11 +10,14 @@ webhook="<discord-webhook>"
 
 # List of cryptocurrencies tickers to check
 # To add more tickers just use space as a separator
+# Ex: tickers=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
 tickers=("ticker1" "ticker2" "ticker3")
 len_tickers=${#tickers[@]}
 # API provider
+# Ex: api_name=KuCoin
 api_name=<api_provider_name>
 # API URL
+# Ex: api_url=https://api.kucoin.com/api/v1/market/stats
 api_url=<api_url>
 # Content of Discord message
 content='Daily crypto price check'
