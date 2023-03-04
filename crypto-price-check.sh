@@ -12,22 +12,29 @@ webhook="<discord-webhook>"
 # To add more tickers just use space as a separator
 # Ex: tickers=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
 tickers=("ticker1" "ticker2" "ticker3")
+
 # Get lenght of tickers array
 len_tickers=${#tickers[@]}
+
 # API provider
 # Ex: api_name=KuCoin
 api_name=<api_provider_name>
+
 # API URL
 # Ex: api_url=https://api.kucoin.com/api/v1/market/stats
 api_url=<api_url>
+
 # API logo
 api_logo=https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png
+
 # Content of Discord message
 content='Crypto Price Check'
 title=''
 description=''
+
 # Use a temporary file to compose the JSON payload
 TEMP_FILE="/tmp/webhook.json"
+
 # JSON data header
 cat > "${TEMP_FILE}" << EOF
 {
@@ -89,10 +96,12 @@ cat >> "${TEMP_FILE}" << EOF
     ]
 }
 EOF
+
 # Send to Discord
 curl -L $webhook \
 -X POST \
 -H "Content-Type: application/json" \
 --data-binary "@${TEMP_FILE}"
+
 # Remove the temporary file
 rm -f "${TEMP_FILE}"
