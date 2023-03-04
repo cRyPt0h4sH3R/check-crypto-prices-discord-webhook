@@ -13,9 +13,9 @@ webhook="<discord-webhook>"
 tickers=("ticker1" "ticker2" "ticker3")
 len_tickers=${#tickers[@]}
 # API provider
-api=KuCoin
+api_name=<api_provider_name>
 # API URL
-api_url=https://api.kucoin.com/api/v1/market/stats
+api_url=<api_url>
 # Content of Discord message
 content='Daily crypto price check'
 title=''
