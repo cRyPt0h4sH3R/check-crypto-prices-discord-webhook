@@ -12,6 +12,7 @@ webhook="<discord-webhook>"
 # To add more tickers just use space as a separator
 # Ex: tickers=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
 tickers=("ticker1" "ticker2" "ticker3")
+# Get lenght of tickers array
 len_tickers=${#tickers[@]}
 # API provider
 # Ex: api_name=KuCoin
