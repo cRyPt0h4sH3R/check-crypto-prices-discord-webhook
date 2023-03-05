@@ -3,7 +3,7 @@
 
 This simple shell script gets crypto prices from an API and posts them to Discord via Webhook.
 
-Add it to cron to set the schedule you want it to fire.
+Add it to cron to set the schedule when you want it to fire.
 
 ## Acknowledgements
 
@@ -15,8 +15,6 @@ Add it to cron to set the schedule you want it to fire.
 ![App Screenshot](https://raw.githubusercontent.com/cRyPt0h4sH3R/check-crypto-prices-discord-webhook/main/demo.png)
 
 ## Deployment
-
-To deploy this project run
 
 ```bash
   git clone https://github.com/cRyPt0h4sH3R/crypto-prices-to-discord.git
@@ -42,8 +40,22 @@ Make the script executable:
 
 ## Usage
 
+To run the script:
+
 ```bash
   ./crypto-prices-to-discord.sh
+```
+
+ To set it on a schedule:
+ 
+ ```bash
+  crontab -e
+```
+ 
+ Add a new line in crontab:
+ 
+ ```bash
+  0 */6 * * * <path-to-script>
 ```
 
 ## License
