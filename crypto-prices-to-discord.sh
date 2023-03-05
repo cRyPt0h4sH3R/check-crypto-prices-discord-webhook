@@ -27,8 +27,8 @@ api_url=<api_url>
 api_logo=https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png
 
 # Content of Discord message
-username='Crypto-Prices-to-Discord'
-content='Crypto Price Check'
+username='Crypto-Prices-Check'
+content='Crypto Prices Check'
 title=''
 description=''
 
