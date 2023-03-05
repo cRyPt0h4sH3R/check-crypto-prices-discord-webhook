@@ -17,8 +17,10 @@ Add it to cron to set the schedule when you want it to fire.
 ## Deployment
 
 ```bash
-  git clone https://github.com/cRyPt0h4sH3R/crypto-prices-to-discord.git
-  cd crypto-prices-to-discord
+git clone https://github.com/cRyPt0h4sH3R/crypto-prices-to-discord.git
+```
+```bash
+cd crypto-prices-to-discord
 ```
 
 ## Setup
@@ -26,7 +28,7 @@ Add it to cron to set the schedule when you want it to fire.
 Edit the script:
 
 ```bash
-  nano crypto-prices-to-discord.sh
+nano crypto-prices-to-discord.sh
 ```
 Put your <discord-webhook>, crypto tickers, <api_provider_name>, <api_url>.
 
@@ -35,7 +37,7 @@ Save and exit the editor.
 Make the script executable:
 
 ```bash
-  chmod u+x crypto-prices-to-discord.sh
+chmod u+x crypto-prices-to-discord.sh
 ```
 
 ## Usage
@@ -43,18 +45,18 @@ Make the script executable:
 To run the script:
 
 ```bash
-  ./crypto-prices-to-discord.sh
+./crypto-prices-to-discord.sh
 ```
 
- To set it on a schedule:
- 
- ```bash
-  crontab -e
+To set it on a schedule:
+
+```bash
+crontab -e
 ```
- 
- Add a new line in crontab:
- 
- ```bash
+
+Add a new line in crontab:
+
+```bash
   0 */6 * * * <path-to-script>
 ```
 
