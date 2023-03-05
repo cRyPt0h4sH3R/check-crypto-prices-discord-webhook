@@ -30,7 +30,7 @@ Edit the script:
 ```bash
 nano crypto-prices-to-discord.sh
 ```
-Put your <discord-webhook>, crypto tickers, <api_provider_name>, <api_url>.
+Fill in your Discord Webhook, crypto tickers, api_provider_name, api_url.
 
 Save and exit the editor.
 
