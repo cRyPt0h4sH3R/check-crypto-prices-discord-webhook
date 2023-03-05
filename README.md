@@ -2,6 +2,7 @@
 # Crypto Prices to Discord via Webhook [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 This simple shell script gets crypto prices from an API and posts them to Discord via Webhook.
+
 Add it to cron to set the schedule you want it to fire.
 
 ## Acknowledgements
