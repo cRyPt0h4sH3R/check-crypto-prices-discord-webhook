@@ -21,7 +21,7 @@ len_tickers=${#tickers[@]}
 api_name=<api_provider_name>
 
 # API URL
-# Ex: api_url=https://api.kucoin.com/api/v1/market/stats
+# Ex: api_url=https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=
 api_url=<api_url>
 
 # API logo
@@ -53,7 +53,7 @@ for i in "${!tickers[@]}"; do
     continue;
     fi
         # Get prices from API
-        price_raw=$(curl --silent -L ${api_url}?symbol=${tickers[$i]} | jq .data.averagePrice | xargs)
+        price_raw=$(curl --silent -L ${api_url}${tickers[$i]} | jq .data.averagePrice | xargs)
         # Trim price to 2 decimals
         price=$(printf "%9.2f" "$price_raw")
         if [[ "$price" ]] ; then
@@ -70,7 +70,7 @@ EOF
         fi
 done
         # Get prices from API for first ticker
-        price_raw=$(curl --silent -L ${api_url}?symbol=${tickers[0]} | jq .data.averagePrice | xargs)
+        price_raw=$(curl --silent -L ${api_url}${tickers[0]} | jq .data.averagePrice | xargs)
         # Trim price to 2 decimals
         price=$(printf "%9.2f" "$price_raw")
         if [[ "$price" ]] ; then
