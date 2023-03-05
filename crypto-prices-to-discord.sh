@@ -54,7 +54,7 @@ for i in "${!tickers[@]}"; do
     continue;
     fi
         # Get prices from API
-        price_raw=$(curl --silent -L ${api_url}${tickers[$i]} | jq .data.averagePrice | xargs)
+        price_raw=$(curl --silent -L ${api_url}${tickers[$i]} | jq .data.price | xargs)
         # Trim price to 2 decimals
         price=$(printf "%9.2f" "$price_raw")
         if [[ "$price" ]] ; then
@@ -71,7 +71,7 @@ EOF
         fi
 done
         # Get prices from API for first ticker
-        price_raw=$(curl --silent -L ${api_url}${tickers[0]} | jq .data.averagePrice | xargs)
+        price_raw=$(curl --silent -L ${api_url}${tickers[0]} | jq .data.price | xargs)
         # Trim price to 2 decimals
         price=$(printf "%9.2f" "$price_raw")
         if [[ "$price" ]] ; then
