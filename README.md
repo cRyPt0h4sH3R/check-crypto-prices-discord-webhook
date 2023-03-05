@@ -57,7 +57,7 @@ crontab -e
 Add a new line in crontab:
 
 ```bash
-  0 */6 * * * <path-to-script>
+0 */6 * * * <path-to-script>
 ```
 
 ## License
