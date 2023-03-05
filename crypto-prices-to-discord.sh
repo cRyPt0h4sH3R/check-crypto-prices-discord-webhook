@@ -1,11 +1,10 @@
 #!/bin/bash
-# Crypto Price Check Discord Webhook Script
+# Crypto Prices to Discord Script
 # Author: cRyPt0h4sH3R
 # Date: 04/03/2023
 #
 # Discord webhook
-# Change the 'your_discord_webhook_name' with your actual Discord Webhook
-# name=Crypto Alerton
+# Change the <discord-webhook> with your actual Discord Webhook
 webhook="<discord-webhook>"
 
 # List of cryptocurrencies tickers to check
@@ -13,7 +12,7 @@ webhook="<discord-webhook>"
 # Ex: tickers=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
 tickers=("ticker1" "ticker2" "ticker3")
 
-# Get lenght of tickers array
+# Get length of tickers array
 len_tickers=${#tickers[@]}
 
 # API provider
@@ -24,10 +23,11 @@ api_name=<api_provider_name>
 # Ex: api_url=https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=
 api_url=<api_url>
 
-# API logo
+# API logo url
 api_logo=https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png
 
 # Content of Discord message
+username='Crypto-Prices-to-Discord'
 content='Crypto Price Check'
 title=''
 description=''
@@ -38,6 +38,7 @@ TEMP_FILE="/tmp/webhook.json"
 # JSON data header
 cat > "${TEMP_FILE}" << EOF
 {
+    "username": "$username",
     "content": "$content",
     "embeds": [
         {
