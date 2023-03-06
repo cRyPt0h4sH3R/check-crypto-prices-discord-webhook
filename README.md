@@ -61,6 +61,19 @@ Add a new line in crontab:
 ```bash
 0 */6 * * * <path-to-script>
 ```
+## Donation
+
+Beer money in case you found this useful or helped your project:
+
+BTC: bc1q0rgyswzn57pvqeqnmdlmd2q4tefpgkprfntvsc
+
+ETH: 0x0EB8ed100e3b93c6D822933523Ad63d70D9651b7
+
+BNB: bnb1j95hlvfxeheg2nmdkypl6estknegu2274zkrv4
+
+EGLD: erd1edrd05mf0lxux0udw8an4kjkkr50mmuv33j34glhf79v7fn6k2rsen423n
+
+[GPL v3](https://opensource.org/license/gpl-3-0/)
 
 ## License
 
