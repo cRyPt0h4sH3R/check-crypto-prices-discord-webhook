@@ -7,9 +7,9 @@ Add it to cron to set the schedule when you want it to fire.
 
 ## Acknowledgements
 
- - [Discord Webhooks Guide by birdie0](https://birdie0.github.io/discord-webhooks-guide/)
- - [How To Use Discord Webhooks to Get Notifications for Your Website Status on Ubuntu 18.04 by Bobby Iliev](https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for-your-website-status-on-ubuntu-18-04)
- - [Cryptocurrency-Discord-Bot-Status by cferreras](https://github.com/cferreras/Cryptocurrency-Discord-Bot-Status)
+ - [Discord Webhooks Guide](https://birdie0.github.io/discord-webhooks-guide/) by birdie0
+ - [How To Use Discord Webhooks to Get Notifications for Your Website Status on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-discord-webhooks-to-get-notifications-for-your-website-status-on-ubuntu-18-04) by Bobby Iliev
+ - [Cryptocurrency-Discord-Bot-Status](https://github.com/cferreras/Cryptocurrency-Discord-Bot-Status) by cferreras
 
 ## Demo
 
