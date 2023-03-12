@@ -4,7 +4,7 @@
 # Date: 04/03/2023
 #
 # Discord webhook
-# Change the 'your_discord_webhook_name' with your actual Discord Webhook
+# Change the <discord webhook> with your actual Discord Webhook
 webhook=<discord webhook>
 # List of cryptocurrency symbol ids to check
 # To add more symbol ids just use space as a separator
