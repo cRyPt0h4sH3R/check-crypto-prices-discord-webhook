@@ -1,108 +1,67 @@
 #!/bin/bash
-# Crypto Prices to Discord Script
+# Crypto Price Check Discord Webhook Script
 # Author: cRyPt0h4sH3R
 # Date: 04/03/2023
 #
 # Discord webhook
-# Change the <discord-webhook> with your actual Discord Webhook
-webhook="<discord-webhook>"
-
-# List of cryptocurrencies tickers to check
-# To add more tickers just use space as a separator
-# Ex: tickers=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
-tickers=("ticker1" "ticker2" "ticker3")
-
-# Get length of tickers array
-len_tickers=${#tickers[@]}
-
-# API provider
-# Ex: api_name=KuCoin
-api_name=<api_provider_name>
-
+# Change the 'your_discord_webhook_name' with your actual Discord Webhook
+# name=Crypto Alerton
+webhook="https://discord.com/api/webhooks/1079192779504222288/CU-8BFLJAHML5FiUw0QUf1k4SNJx-sxu79NKZi-IzfI6lofFXbNbvcP5CA7Y9dV2SvHM"
+# List of cryptocurrencies symbols to check
+# To add more symbols just use space as a separator
+# Ex: symbols=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
+symbols=("helium" "chia" "elrond-erd-2" "bitcoin")
 # API URL
-# Ex: api_url=https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=
-api_url=<api_url>
-
-# API logo url
-api_logo=https://assets.staticimg.com/cms/media/3gfl2DgVUqjJ8FnkC7QxhvPmXmPgpt42FrAqklVMr.png
-
-# Content of Discord message
-username='Crypto-Prices-Check'
-content='Crypto Prices Check'
-title=''
-description=''
-
+# Check API documentation at https://www.coingecko.com/en/api/documentation
+api_url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&sparkline=false&ids="
+# Cryptocurrency data
+data_symbols=https://www.coingecko.com/en/coins/
 # Use a temporary file to compose the JSON payload
 TEMP_FILE="/tmp/webhook.json"
-
-# JSON data header
-cat > "${TEMP_FILE}" << EOF
-{
-    "username": "$username",
-    "content": "$content",
-    "embeds": [
+#Cycle through symbols
+for i in "${!symbols[@]}"; do
+    # Compose API request
+    api_request=${api_url}${symbols[$i]}
+    # Save JSON response
+    json_response=$(curl --silent -X GET -L --url ${api_request})
+    # Extract name from JSON response
+    id=$(jq -r '.[].id' <<< $json_response)
+    # Extract name from JSON response
+    name=$(jq -r '.[].name' <<< $json_response)
+    # Extract image from JSON response
+    image=$(jq -r '.[].image' <<< $json_response)
+    # Extract current_price from JSON response
+    current_price=$(jq -r '.[].current_price' <<< $json_response)
+    # Extract price_change_percentage_24h from JSON response
+    price_change_percentage_24h_raw=$(jq -r '.[].price_change_percentage_24h' <<< $json_response)
+    # Trim price_change_percentage_24h to 2 decimals
+    price_change_percentage_24h=$(printf "%9.2f" "$price_change_percentage_24h_raw")
+    if [[ "$current_price" ]] ; then
+        # Continue building JSON data
+        # JSON data header
+        cat > "${TEMP_FILE}" << EOF
         {
-            "title": "$title",
-            "description": "$description",
-            "fields": [
-EOF
-
-#Cycle through tickers array
-for i in "${!tickers[@]}"; do
-    # Ignore first array item, it will be parsed after the loop
-    if [ $i == 0 ]; then
-    continue;
-    fi
-        # Get prices from API
-        price_raw=$(curl --silent -L ${api_url}${tickers[$i]} | jq .data.price | xargs)
-        # Trim price to 2 decimals
-        price=$(printf "%9.2f" "$price_raw")
-        if [[ "$price" ]] ; then
-            # JSON data
-            cat >> "${TEMP_FILE}" << EOF
+            "username": "$name",
+            "avatar_url": "$image",
+            "content": "$current_price USD",
+            "embeds": [
                 {
-                    "name": "${tickers[$i]}",
-                    "value": "$price",
-                    "inline": true
-                },
-EOF
-        else
-            echo "API down?"
-        fi
-done
-        # Get prices from API for first ticker
-        price_raw=$(curl --silent -L ${api_url}${tickers[0]} | jq .data.price | xargs)
-        # Trim price to 2 decimals
-        price=$(printf "%9.2f" "$price_raw")
-        if [[ "$price" ]] ; then
-            # JSON data first ticker
-            cat >> "${TEMP_FILE}" << EOF
-                {
-                    "name": "${tickers[0]}",
-                    "value": "$price",
-                    "inline": true
+                    "title": "Price change 24h $price_change_percentage_24h%",
+                    "url": "$data_symbols$id"
                 }
-EOF
-        else
-            echo "API down?"
-        fi
-# JSON data footer
-cat >> "${TEMP_FILE}" << EOF
-        ],
-        "footer": {
-            "text": "API by $api_name",
-            "icon_url": "$api_logo"
+            ]
         }
-    }
-    ]
-}
 EOF
-
-# Send to Discord
-curl -L $webhook \
--X POST \
--H "Content-Type: application/json" \
---data-binary "@${TEMP_FILE}"
-
-# Remove the temporary file
-rm -f "${TEMP_FILE}"
+    sleep 1
+    # Send to Discord
+    curl -L $webhook \
+    -X POST \
+    -H "Content-Type: application/json" \
+    --data-binary "@${TEMP_FILE}"
+    # Remove the temporary file
+    rm -f "${TEMP_FILE}"
+    else
+        echo "API down?"
+    fi
+    sleep 1
+done
