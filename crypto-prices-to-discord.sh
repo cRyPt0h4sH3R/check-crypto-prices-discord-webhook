@@ -36,8 +36,7 @@ for i in "${!symbols[@]}"; do
     # Trim price_change_percentage_24h to 2 decimals
     price_change_percentage_24h=$(printf "%9.2f" "$price_change_percentage_24h_raw")
     if [[ "$current_price" ]] ; then
-        # Continue building JSON data
-        # JSON data header
+        # Build JSON payload
         cat > "${TEMP_FILE}" << EOF
         {
             "username": "$name",
