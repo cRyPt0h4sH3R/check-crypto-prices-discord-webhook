@@ -13,7 +13,7 @@ Add it to cron to set the schedule when you want it to fire.
 
 ## Demo
 
-![App Screenshot](https://raw.githubusercontent.com/cRyPt0h4sH3R/check-crypto-prices-discord-webhook/main/demo.png)
+![App Screenshot](https://raw.githubusercontent.com/cRyPt0h4sH3R/check-crypto-prices-discord-webhook/main/example.png)
 
 ## Deployment
 
