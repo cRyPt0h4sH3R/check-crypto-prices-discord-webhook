@@ -74,8 +74,6 @@ BNB: bnb1j95hlvfxeheg2nmdkypl6estknegu2274zkrv4
 
 EGLD: erd1edrd05mf0lxux0udw8an4kjkkr50mmuv33j34glhf79v7fn6k2rsen423n
 
-[GPL v3](https://opensource.org/license/gpl-3-0/)
-
 ## License
 
 [GPL v3](https://opensource.org/license/gpl-3-0/)
