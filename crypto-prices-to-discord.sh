@@ -5,8 +5,7 @@
 #
 # Discord webhook
 # Change the 'your_discord_webhook_name' with your actual Discord Webhook
-# name=Crypto Alerton
-webhook="https://discord.com/api/webhooks/1079192779504222288/CU-8BFLJAHML5FiUw0QUf1k4SNJx-sxu79NKZi-IzfI6lofFXbNbvcP5CA7Y9dV2SvHM"
+webhook=<discord webhook>
 # List of cryptocurrencies symbols to check
 # To add more symbols just use space as a separator
 # Ex: symbols=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
