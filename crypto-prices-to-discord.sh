@@ -1,5 +1,5 @@
 #!/bin/bash
-# Crypto Price Check Discord Webhook Script
+# Crypto Prices to Discord Webhook Script
 # Author: cRyPt0h4sH3R
 # Date: 04/03/2023
 #
