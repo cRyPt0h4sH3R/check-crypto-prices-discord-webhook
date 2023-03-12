@@ -6,10 +6,10 @@
 # Discord webhook
 # Change the 'your_discord_webhook_name' with your actual Discord Webhook
 webhook=<discord webhook>
-# List of cryptocurrencies symbols to check
-# To add more symbols just use space as a separator
-# Ex: symbols=("BTC-USDT" "HNT-USDT" "XCH-USDT" "EGLD-USDT")
-symbols=("helium" "chia" "elrond-erd-2" "bitcoin")
+# List of cryptocurrency symbol ids to check
+# To add more symbol ids just use space as a separator
+# Get full list at https://api.coingecko.com/api/v3/coins/list
+symbols=("ethereum" "bitcoin")
 # API URL
 # Check API documentation at https://www.coingecko.com/en/api/documentation
 api_url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&sparkline=false&ids="
@@ -23,7 +23,7 @@ for i in "${!symbols[@]}"; do
     api_request=${api_url}${symbols[$i]}
     # Save JSON response
     json_response=$(curl --silent -X GET -L --url ${api_request})
-    # Extract name from JSON response
+    # Extract id from JSON response
     id=$(jq -r '.[].id' <<< $json_response)
     # Extract name from JSON response
     name=$(jq -r '.[].name' <<< $json_response)
